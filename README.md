@@ -1,4 +1,4 @@
-## Access Labs Pizza
+<!-- ## Access Labs Pizza
 
 Welcome to your first day at the Access Labs Pizzeria!
 Today, you are tasked to building an online menu of all the pizzas that the pizzeria offers.
@@ -9,9 +9,9 @@ Make sure that before you fire up your React server, you *first* fire up your js
 ```
 TO INSTALL: npm install -g json-server
 TO START: json-server --watch db.json
-```
+``` -->
 
-After firing up your server, render the list of pizzas in to the table.
+<!-- After firing up your server, render the list of pizzas in to the table. -->
 
 Each row in the table should be a pizza component and when you click the "Edit" button, it should send the pizza associated with that component into the Pizza form.
 

@@ -3,12 +3,33 @@ import Header from './components/Header'
 import PizzaForm from './components/PizzaForm'
 import PizzaList from './containers/PizzaList'
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      pizzas:[]
+    }
+  }
+  componentWillMount = () => {
+    const PIZZAS_URL = 'http://localhost:3000/pizzas';
+    fetch(PIZZAS_URL)
+      .then(response => response.json())
+      .then(pizzas => {
+        return this.setState({
+          pizzas: [...pizzas]
+        })
+      })
+  }
+  handleEditClick = (event) => {
+    console.log(event)
+  }
   render() {
     return (
       <Fragment>
         <Header/>
         <PizzaForm/>
-        <PizzaList/>
+        <PizzaList
+          pizzas={this.state.pizzas}
+          handleEditClick={this.handleEditClick}/>
       </Fragment>
     );
   }
