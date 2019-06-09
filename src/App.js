@@ -6,7 +6,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      pizzas:[]
+      pizzas:[],
+      editPizza:[]
     }
   }
   componentWillMount = () => {
@@ -19,14 +20,16 @@ class App extends Component {
         })
       })
   }
-  handleEditClick = (event) => {
-    console.log(event)
+  handleEditClick = (pizza) => {
+    this.setState({editPizza:pizza})
   }
   render() {
     return (
       <Fragment>
         <Header/>
-        <PizzaForm/>
+        <PizzaForm
+          editPizza={this.state.editPizza}
+          />
         <PizzaList
           pizzas={this.state.pizzas}
           handleEditClick={this.handleEditClick}/>

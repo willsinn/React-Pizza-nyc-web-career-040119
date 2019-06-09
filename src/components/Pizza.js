@@ -7,7 +7,7 @@ const Pizza = (props) => {
       <td>{props.size}</td>
       <td>{props.vegetarian}</td>
       <td>
-        <button type="button" className="btn btn-primary" onClick={props.handleEditClick}>Edit Pizza
+        <button type="button" className="btn btn-primary" onClick={(event) => {props.handleEditClick(props.pizza)}}>Edit Pizza
         </button>
       </td>
     </tr>

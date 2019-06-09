@@ -6,6 +6,7 @@ class PizzaList extends Component {
   generatePizza = () => {
     return this.props.pizzas.map((pizza) => (
       <Pizza
+        pizza={pizza}
         pizzaId={pizza.id}
         key={pizza.id}
         topping={pizza.topping}
