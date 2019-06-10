@@ -7,7 +7,11 @@ class App extends Component {
     super()
     this.state = {
       pizzas:[],
-      editPizza:[]
+      editPizza:[{
+        topping: '',
+        size: '',
+        vegetarian: null
+      }]
     }
   }
   componentWillMount = () => {
@@ -21,18 +25,41 @@ class App extends Component {
       })
   }
   handleEditClick = (pizza) => {
-    this.setState({editPizza:pizza})
+    this.setState({
+      topping: pizza.topping,
+      size: pizza.size,
+      vegetarian: pizza.vegetarian
+      })
   }
-  handleToppingChange = (onChange) => {
-    console.log(onChange)
+  handleToppingChange = (toppingChange) => {
+    // console.log(toppingChange)
+    this.setState({topping: toppingChange.currentTarget.value})
+  }
+  handleSizeChange = (sizeChange) => {
+    // console.log(sizeChange)
+    this.setState({size: sizeChange.currentTarget.value})
+  }
+  handleConvertVeggies = (isVegetarian) => {
+    // console.log(isVegetarian)
+    this.setState({vegetarian: !this.state.vegetarian})
+  }
+  handleVeggiesNasty = (notVegetarian) => {
+    // console.log(notVegetarian)
+    this.setState({vegetarian: !this.state.vegetarian})
   }
   render() {
     return (
       <Fragment>
         <Header/>
         <PizzaForm
-          editPizza={this.state.editPizza}
+          topping={this.state.topping}
+          size={this.state.size}
+          vegetarian={this.state.vegetarian}
           handleToppingChange={this.handleToppingChange}
+          handleSizeChange={this.handleSizeChange}
+          handleConvertVeggies={this.handleConvertVeggies}
+          handleVeggiesNasty={this.handleVeggiesNasty}
+
           />
         <PizzaList
           pizzas={this.state.pizzas}
