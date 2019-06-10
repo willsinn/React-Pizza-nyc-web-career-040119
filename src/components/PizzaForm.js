@@ -1,11 +1,15 @@
 import React from "react"
 
 const PizzaForm = (props) => {
-  let pizza = props.editPizza
+  const pizza = props.editPizza
   return(
       <div className="form-row">
         <div className="col-5">
-            <input type="text" className="form-control" placeholder={pizza.topping} value=""/>
+            <input type="text" className="form-control" placeholder="Pizza Topping" value={
+              (pizza.topping === undefined)
+              ? ("Pizza Topping")
+              : pizza.topping
+            } onChange={props.handleToppingChange}/>
         </div>
         <div className="col">
           <select value={null} className="form-control">

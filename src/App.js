@@ -23,12 +23,16 @@ class App extends Component {
   handleEditClick = (pizza) => {
     this.setState({editPizza:pizza})
   }
+  handleToppingChange = (onChange) => {
+    console.log(onChange)
+  }
   render() {
     return (
       <Fragment>
         <Header/>
         <PizzaForm
           editPizza={this.state.editPizza}
+          handleToppingChange={this.handleToppingChange}
           />
         <PizzaList
           pizzas={this.state.pizzas}
